@@ -25,16 +25,18 @@
 
   <!-- Content section -->
   <section class="py-5">
-    <div class="container">
+    <!--<div class="container">
       <h2>Get the Time in The United States</h2>
       <label for= "zipCode">Enter your zip code for the current time:</label>
       <br>
       <input type= "number" id= "zipCode" name= "zipCode">
       <br>
       <br>
-      <input type= "submit" value= "Submit" onclick="getTime()">
-
-    </div>
+      <input type= "submit" value= "Submit" onclick="getTime()"> -->
+      <h2>Get the Time in The United States</h2>
+      <input type= "text" id="inputValue" placeholder= "Enter a city">
+      <button onclick= "getTime()">Click Me</button>
+    <!--</div> -->
   </section>
 
   <!-- Image Section - set the background image for the header in the line below -->
@@ -59,7 +61,25 @@
     <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
-    <script src="weather.js"></script>
+    <script src="bundle.js"></script>
+    <script>
+      var Moment= require('moment-timezone'); // Get access to moment package
+
+      var clock= new Moment();  // Set variable for a new time
+
+//console.log(clock.tz("America/New_York").format('h:mm:ss')); // Get current time
+
+
+      function getTime(){
+
+        var t= document.getElementById("inputValue").nodeValue; 
+        alert(clock.tz(t).format('h:mm:ss'));
+        //return t
+      }
+
+        //getTime();
+
+    </script> 
 
   </body>
 </html>
